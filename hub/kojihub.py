@@ -6918,7 +6918,7 @@ def parse_json(value, desc=None, errstr=None):
     if value is None:
         return value
     try:
-        return json.loads(value)
+        return koji.fixEncodingRecurse(json.loads(value))
     except Exception:
         if errstr is None:
             if desc is None:
